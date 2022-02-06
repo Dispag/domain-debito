@@ -16,12 +16,18 @@ WORKDIR /usr/src/app
 # copy only the artifacts we need from the first stage and discard the rest
 COPY --from=MAVEN_BUILD target/domain-debito-2.6.3.jar /domain-debito.jar
 
-RUN apk -v --no-cache add \
-        py-pip \
-        curl \
-        jq \
-        && \
-        pip install awscli --upgrade --user
+# install pip
+RUN curl -O https://bootstrap.pypa.io/get-pip.py
+RUN python get-pip.py --user
+RUN export PATH=~/.local/bin:$PATH
+
+# install AWS CLI
+RUN pip install --upgrade --user awscli
+RUN export PATH=/home/ec2-user/.local/bin:$PATH
+
+# install SSM Agent and dependencies
+RUN sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+RUN sudo yum install -y polkit
 
 RUN echo  aws ssm get-parameters --name DISPAG_DATASOURCE_USERNAME --region us-east-2 --output text --query Parameters[].Value
 
