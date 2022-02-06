@@ -15,6 +15,16 @@ WORKDIR /usr/src/app
 
 # copy only the artifacts we need from the first stage and discard the rest
 COPY --from=MAVEN_BUILD target/domain-debito-2.6.3.jar /domain-debito.jar
+
+RUN apk -v --no-cache add \
+        py-pip \
+        curl \
+        jq \
+        && \
+        pip install awscli --upgrade --user
+
+RUN echo  aws ssm get-parameters --name DISPAG_DATASOURCE_USERNAME --region us-east-2 --output text --query Parameters[].Value
+
  
 
 ##Kafka Config
