@@ -13,7 +13,7 @@ WORKDIR /usr/src/app
 
 
 # copy only the artifacts we need from the first stage and discard the rest
-COPY --from=MAVEN_BUILD /docker-multi-stage-build-demo/target/domain-debito-2.6.3.jar /domain-debito.jar
+COPY --from=MAVEN_BUILD target/domain-debito-2.6.3.jar /domain-debito.jar
  
 
 ##Kafka Config
