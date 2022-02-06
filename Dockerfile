@@ -16,15 +16,15 @@ WORKDIR /usr/src/app
 # copy only the artifacts we need from the first stage and discard the rest
 COPY --from=MAVEN_BUILD target/domain-debito-2.6.3.jar /domain-debito.jar
 
-RUN yum update && \
-    yum install -y \
+RUN apt update && \
+    apt install -y \
         python3 \
         python3-pip \
         python3-setuptools \
         groff \
         less \
     && pip3 install --upgrade pip \
-    && yum clean
+    && apt clean
 
 RUN pip3 --no-cache-dir install --upgrade awscli
 
