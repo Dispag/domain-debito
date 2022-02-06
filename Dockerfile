@@ -6,6 +6,7 @@ COPY ./ ./
  
 # package our application codedocker 
 RUN mvn clean package
+RUN pwd
 
 FROM openjdk:14
 
