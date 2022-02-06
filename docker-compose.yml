@@ -6,4 +6,4 @@ services:
     build:  .
     container_name: "domaindebito-container"
     restart:  always
-	network_mode: host
+    network_mode: host
