@@ -12,7 +12,8 @@ prepare:
 
 build: prepare
 	docker-compose -f docker-compose.yml build \
-	--build-arg DATASOURCE_URL=$(DATASOURCE_URL) \
-	--build-arg DATASOURCE_USERNAME=$(DATASOURCE_USERNAME) \
-	--build-arg DATASOURCE_PASSWORD=$(DATASOURCE_PASSWORD)
+	--build-arg DATASOURCE_URL \
+	--build-arg DATASOURCE_USERNAME \
+	--build-arg DATASOURCE_PASSWORD
+	
 	
