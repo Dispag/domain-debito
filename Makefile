@@ -1,6 +1,9 @@
 
 
+
+
 prepare:
+	sudo service docker restart
 	DATASOURCE_URL=$(shell  aws ssm get-parameters --name /dispag/database/datasourceurl --region us-east-2 --output text --query Parameters[].Value)
 	DATASOURCE_USERNAME=$(shell  aws ssm get-parameters --name /dispag/database/username --region us-east-2 --output text --query Parameters[].Value)
 	DATASOURCE_PASSWORD=$(shell  aws ssm get-parameters --name /dispag/database/password --region us-east-2 --output text --query Parameters[].Value)
