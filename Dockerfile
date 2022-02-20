@@ -14,22 +14,11 @@ WORKDIR /usr/src/app
 
 
 # copy only the artifacts we need from the first stage and discard the rest
-COPY --from=MAVEN_BUILD target/domain-debito-2.6.3.jar /domain-debito.jar
-
-RUN echo ${TEST}
-
-RUN echo  aws ssm get-parameters --name DISPAG_DATASOURCE_USERNAME --region us-east-2 --output text --query Parameters[].Value
- 
+COPY --from=MAVEN_BUILD target/domain-debito-1.0.0.jar ./
 
 ##Kafka Config
-ENV KAFKA_SERVER=localhost:29092
 ENV KAFKA_GROUP=DISPAG
 ENV KAFKA_CONSUMER_REGISTRAR_DEBITO_TOPIC=REGISTRARDEBITO
 ENV KAFKA_PRODUCER_VERIFICAR_CREDOR_TOPIC=VERIFICARCREDOR
 
-##Banco Config
-ENV DATASOURCE_URL=jdbc:postgresql://192.168.15.51:5432/tarefas
-ENV DATASOURCE_USERNAME=programador
-ENV DATASOURCE_PASSWORD=hidros
-
-CMD ["java", "-jar", "-XX:+UseG1GC", "domain-debito.jar"]
+CMD ["java", "-jar", "-XX:+UseG1GC", "domain-debito-1.0.0.jar"]

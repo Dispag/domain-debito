@@ -19,6 +19,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
 		<maven.compiler.release>14</maven.compiler.release>
+		
 <!-- 		<java.version>14</java.version> -->
 	</properties>
 	
@@ -69,7 +70,7 @@
 		    <artifactId>postgresql</artifactId>
 		    <version>42.3.1</version>
 		</dependency>
-				
+		
 		<!-- https://mvnrepository.com/artifact/org.webjars/bootstrap -->
 		
 		<dependency>
@@ -88,6 +89,7 @@
 	</dependencies>
 
 
+
 	<repositories>
 		<repository>
 			<id>spring-releases</id>
@@ -101,11 +103,5 @@
 		</repository>
 	</repositories>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>spring-releases</id>
-			<name>Spring Releases</name>
-			<url>https://repo.spring.io/libs-release</url>
-		</pluginRepository>
-	</pluginRepositories>
+	
 </project>
