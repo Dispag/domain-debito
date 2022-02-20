@@ -7,7 +7,6 @@ prepare:
 	
 	@echo "URL: $(DATASOURCE_URL)"
 
-build:
-	prepare
+build: prepare
 	docker-compose build --build-arg DATASOURCE_URL=DATASOURCE_URL --build-arg DATASOURCE_USERNAME=DATASOURCE_USERNAME --build-arg DATASOURCE_PASSWORD=DATASOURCE_PASSWORD
 	
