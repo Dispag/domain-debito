@@ -4,7 +4,9 @@ services:
 
   domaindebito:
 	image: domain-debito
-    build:  .
+    build:
+		context: .
+      	dockerfile: Dockerfile
     container_name: "domaindebito-container"
     restart:  always
     network_mode: host
