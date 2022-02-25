@@ -19,7 +19,7 @@ pipeline {
   }
   environment {
     ENVIRONMENT = "${params.ENVIRONMENT}"
-    DOCKER-SERVER_IP = "10.11.2.195"
+    DOCKER_SERVER_IP = "10.11.2.195"
   }
 
   stages {
