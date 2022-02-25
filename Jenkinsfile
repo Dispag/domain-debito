@@ -48,6 +48,17 @@ pipeline {
       }
     }
 
+	 stage('Deploy') {
+      steps { 
+         
+          sh '''echo env: ${ENVIRONMENT}
+          	sudo su
+          	ssh -i /home/ec2-user/access/alexsanderhage.pem ec2-user@${DOCKER_SERVER_IP} 'cd /home/ec2-user/deployments/domain-debito && make run'
+          
+          '''
+        
+      }
+    }
    
   }
 }

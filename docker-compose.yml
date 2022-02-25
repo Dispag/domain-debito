@@ -3,6 +3,7 @@ services:
   
 
   domaindebito:
+	image: domain-debito
     build:  .
     container_name: "domaindebito-container"
     restart:  always
