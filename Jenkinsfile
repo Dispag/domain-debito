@@ -27,7 +27,7 @@ pipeline {
          
           sh '''echo env: ${ENVIRONMENT}
           	sudo su
-          	ssh -i access/alexsanderhage.pem ec2-user@10.11.2.195 'docker ps'
+          	ssh -i /home/ec2-user/access/alexsanderhage.pem ec2-user@10.11.2.195 'docker ps'
           
           
           
