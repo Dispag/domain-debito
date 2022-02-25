@@ -29,7 +29,7 @@ pipeline {
           sh '''echo env: ${ENVIRONMENT}
           	sudo su
           	ssh -i /home/ec2-user/access/alexsanderhage.pem ec2-user@${DOCKER_SERVER_IP} 'rm -f -r /home/ec2-user/deployments/*'
-          	ssh -i /home/ec2-user/access/alexsanderhage.pem ec2-user@${DOCKER_SERVER_IP} 'cd /home/ec2-user/deployments/ | git clone https://github.com/Dispag/domain-debito.git'
+          	ssh -i /home/ec2-user/access/alexsanderhage.pem ec2-user@${DOCKER_SERVER_IP} 'cd /home/ec2-user/deployments/ && git clone https://github.com/Dispag/domain-debito.git'
           
           
           '''
