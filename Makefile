@@ -14,14 +14,6 @@ build: prepare
 	--build-arg DATASOURCE_PASSWORD	\
 	--build-arg KAFKA_SERVER
 	
-
-run: prepare
-	docker-compose run -d -e DATASOURCE_URL \
-	-e DATASOURCE_USERNAME \
-	-e DATASOURCE_PASSWORDD \
-	-e KAFKA_SERVER \
-	domaindebito
-	
 run: prepare
 	docker-compose run -e DATASOURCE_URL \
 	-e DATASOURCE_USERNAME \
