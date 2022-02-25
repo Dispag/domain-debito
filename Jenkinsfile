@@ -19,6 +19,7 @@ pipeline {
   }
   environment {
     ENVIRONMENT = "${params.ENVIRONMENT}"
+    DOCKER-SERVER_IP = '10.11.2.195'
   }
 
   stages {
@@ -27,8 +28,8 @@ pipeline {
          
           sh '''echo env: ${ENVIRONMENT}
           	sudo su
-          	ssh -i /home/ec2-user/access/alexsanderhage.pem ec2-user@10.11.2.195 'docker ps'
-          
+          	ssh -i /home/ec2-user/access/alexsanderhage.pem ec2-user@${DOCKER-SERVER_IP} 'rm -f -r /home/ec2-user/deployments/*'
+          	ssh -i /home/ec2-user/access/alexsanderhage.pem ec2-user@${DOCKER-SERVER_IP} 'git clone https://github.com/Dispag/domain-debito.git'
           
           
           '''
