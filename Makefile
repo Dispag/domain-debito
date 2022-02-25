@@ -14,7 +14,7 @@ build: prepare
 	--build-arg KAFKA_SERVER
 	
 
-run: 
+run: prepare
 	docker-compose run -d -e DATASOURCE_URL \
 	-e DATASOURCE_USERNAME \
 	-e DATASOURCE_PASSWORD \
