@@ -19,11 +19,11 @@ pipeline {
   }
   environment {
     ENVIRONMENT = "${params.ENVIRONMENT}"
-    DOCKER-SERVER_IP = '10.11.2.195'
+    DOCKER-SERVER_IP = "10.11.2.195"
   }
 
   stages {
-    stage('Build') {
+    stage('Prepare') {
       steps { 
          
           sh '''echo env: ${ENVIRONMENT}
