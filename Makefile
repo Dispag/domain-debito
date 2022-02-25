@@ -1,3 +1,4 @@
+PROJECT=domaindebito
 
 prepare:
 	DATASOURCE_URL=$(shell  aws ssm get-parameters --name /dispag/database/datasourceurl --region us-east-2 --output text --query Parameters[].Value)
@@ -20,3 +21,13 @@ run: prepare
 	-e DATASOURCE_PASSWORDD \
 	-e KAFKA_SERVER \
 	domaindebito
+	
+run: prepare
+	docker-compose run -d -e DATASOURCE_URL \
+	-e DATASOURCE_USERNAME \
+	-e DATASOURCE_PASSWORDD \
+	-e KAFKA_SERVER \
+	$(PROJECT)
+	
+down:
+	docker-compose down --remove-orphans
