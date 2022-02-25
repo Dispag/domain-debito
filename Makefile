@@ -15,8 +15,8 @@ build: prepare
 	
 
 run: prepare
-	docker-compose run -d -e DATASOURCE_URL=$DATASOURCE_URL \
-	-e DATASOURCE_USERNAME=$DATASOURCE_USERNAME \
-	-e DATASOURCE_PASSWORD=$DATASOURCE_PASSWORD \
-	-e KAFKA_SERVER=$KAFKA_SERVER \
+	docker-compose run -d -e DATASOURCE_URL \
+	-e DATASOURCE_USERNAME \
+	-e DATASOURCE_PASSWORDD \
+	-e KAFKA_SERVER \
 	domaindebito
