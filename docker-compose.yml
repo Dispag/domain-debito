@@ -1,12 +1,10 @@
 version: '3.7'
 services:
-  
-
-  domaindebito:
-	image: domain-debito
-    build:
-		context: .
-      	dockerfile: Dockerfile
-    container_name: "domaindebito-container"
-    restart:  always
-    network_mode: host
+	domaindebito:
+		image: domain-debito
+		build:
+			context: .
+      		dockerfile: Dockerfile
+    	container_name: "domaindebito-container"
+    	restart:  always
+    	network_mode: host
