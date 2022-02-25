@@ -4,7 +4,8 @@ prepare:
 	DATASOURCE_USERNAME=$(shell  aws ssm get-parameters --name /dispag/database/username --region us-east-2 --output text --query Parameters[].Value)
 	DATASOURCE_PASSWORD=$(shell  aws ssm get-parameters --name /dispag/database/password --region us-east-2 --output text --query Parameters[].Value)
 	KAFKA_SERVER=$(shell  aws ssm get-parameters --name /dispag/kafka/server --region us-east-2 --output text --query Parameters[].Value)
-	
+	docker rm -f $(docker container ps -a -q)
+	docker rmi -f $(docker images -a -q)
 	@echo "URL: $(DATASOURCE_URL)"
 
 build: prepare
