@@ -15,7 +15,7 @@ build:
 	--build-arg KAFKA_SERVER=$(KAFKA_SERVER)
 	
 run: 
-	docker-compose run \
+	docker-compose run -d \
 	-e DATASOURCE_URL=$(DATASOURCE_URL) \
 	-e DATASOURCE_USERNAME=$(DATASOURCE_USERNAME) \
 	-e DATASOURCE_PASSWORDD=$(DATASOURCE_PASSWORD) \
