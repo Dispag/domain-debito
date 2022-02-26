@@ -9,16 +9,17 @@ prepare:
 
 build: prepare
 	docker-compose -f docker-compose.yml build \
-	--build-arg DATASOURCE_URL \
-	--build-arg DATASOURCE_USERNAME \
-	--build-arg DATASOURCE_PASSWORD	\
-	--build-arg KAFKA_SERVER
+	--build-arg DATASOURCE_URL=$(DATASOURCE_URL) \
+	--build-arg DATASOURCE_USERNAME=$(DATASOURCE_USERNAME) \
+	--build-arg DATASOURCE_PASSWORD=$(DATASOURCE_PASSWORD)	\
+	--build-arg KAFKA_SERVER=$(KAFKA_SERVER)
 	
 run: prepare
-	docker-compose run -e DATASOURCE_URL \
-	-e DATASOURCE_USERNAME \
-	-e DATASOURCE_PASSWORDD \
-	-e KAFKA_SERVER \
+	docker-compose run 
+	-e DATASOURCE_URL=$(DATASOURCE_URL) \
+	-e DATASOURCE_USERNAME=$(DATASOURCE_USERNAME) \
+	-e DATASOURCE_PASSWORDD=$(DATASOURCE_PASSWORD) \
+	-e KAFKA_SERVER=$(KAFKA_SERVER) \
 	$(PROJECT)
 	
 down:
