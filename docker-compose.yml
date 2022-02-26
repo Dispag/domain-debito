@@ -5,6 +5,11 @@ services:
   build:
    context: .
    dockerfile: Dockerfile
+   args:
+   - DATASOURCE_URL
+   - DATASOURCE_USERNAME
+   - DATASOURCE_PASSWORD
+   - KAFKA_SERVER
   container_name: "domaindebito-container"
   restart:  always
   network_mode: host
